@@ -19,6 +19,13 @@ INTERV::Tableau::~Tableau()
 	}
 }
 
+INTERV::Tableau::Tableau(const Tableau&T)
+{
+	this->Taille = T.Taille;
+	if (Taille > 0)this->Tab = new Type[Taille];
+	else this->Tab = NULL;
+}
+
 Tableau& INTERV::Tableau::operator=(const Tableau&T)
 {
 	if (this != &T) {
@@ -29,6 +36,7 @@ Tableau& INTERV::Tableau::operator=(const Tableau&T)
 		this->Taille = T.Taille;
 		if(Taille>0)this->Tab = new Type[Taille];
 	}
+	return *this;
 }
 
 Type& INTERV::Tableau::operator[](unsigned int ind)
