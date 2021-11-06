@@ -8,9 +8,9 @@ INTERV::TableauBorne::TableauBorne(Type bornInf, Type bornSup,unsigned int Taill
 	this->Sup = bornSup;
 }
 
-Type INTERV::TableauBorne::operator[](unsigned int ind)
+Type INTERV::TableauBorne::operator[](unsigned int ind)const
 {
-	return this->Tableau::operator[](ind);
+	return this->Tab[ind];
 }
 
 void INTERV::TableauBorne::operator()(unsigned int ind, Type Val)

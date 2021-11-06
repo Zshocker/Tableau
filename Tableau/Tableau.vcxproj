@@ -143,6 +143,7 @@
     <ClInclude Include="TableauBorne.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tableau.cpp" />
     <ClCompile Include="TableauBorne.cpp" />
   </ItemGroup>
