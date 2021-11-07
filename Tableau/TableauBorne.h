@@ -9,6 +9,7 @@ namespace INTERV {
 		TableauBorne(Type bornInf, Type bornSup,unsigned int Taille);
 		Type operator[](unsigned int ind)const;
 		void operator()(unsigned int ind,Type Val);
+		void Print()const;
 	};
 }
 

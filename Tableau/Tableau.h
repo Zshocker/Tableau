@@ -8,10 +8,11 @@ namespace INTERV {
 		unsigned int Taille;
 	public:
 		Tableau(unsigned int Taille=0);
-		~Tableau();
+		Type& operator[](unsigned int ind);
 		Tableau(const Tableau&);
 		Tableau& operator=(const Tableau&);
-		Type& operator[](unsigned int ind);
+		void Print()const;
+		~Tableau();
 	};
 
 }

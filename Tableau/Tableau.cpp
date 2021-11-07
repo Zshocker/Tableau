@@ -2,6 +2,7 @@
 #include<iostream>
 #include<assert.h>
 using namespace INTERV;
+using namespace std;
 INTERV::Tableau::Tableau(unsigned int Taille)
 {
 	this->Taille = Taille;
@@ -18,11 +19,21 @@ INTERV::Tableau::~Tableau()
 		this->Tab = NULL;
 	}
 }
-
+Type& INTERV::Tableau::operator[](unsigned int ind)
+{
+	assert(this->Taille > ind);
+	return this->Tab[ind];
+}
 INTERV::Tableau::Tableau(const Tableau&T)
 {
 	this->Taille = T.Taille;
-	if (Taille > 0)this->Tab = new Type[Taille];
+	if (Taille > 0) { 
+		this->Tab = new Type[Taille];
+		for (unsigned int i = 0; i < Taille; i++)
+		{
+			Tab[i] = T.Tab[i];
+		}
+	}
 	else this->Tab = NULL;
 }
 
@@ -34,13 +45,25 @@ Tableau& INTERV::Tableau::operator=(const Tableau&T)
 			this->Tab = NULL;
 		}
 		this->Taille = T.Taille;
-		if(Taille>0)this->Tab = new Type[Taille];
+		if (Taille > 0) { 
+			this->Tab = new Type[Taille];
+			for (unsigned int i = 0; i < Taille; i++)
+			{
+				Tab[i] = T.Tab[i];
+			}
+		}
 	}
 	return *this;
 }
 
-Type& INTERV::Tableau::operator[](unsigned int ind)
+void INTERV::Tableau::Print() const
 {
-	assert(this->Taille > ind);
-	return this->Tab[ind];
+	cout << "Table: {";
+	for (int i = 0; i < Taille; i++)
+	{
+		cout << this->Tab[i]<<" ";
+	}
+	cout << "}"<< endl;
 }
+
+

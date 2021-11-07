@@ -1,5 +1,7 @@
 #include "TableauBorne.h"
 #include<assert.h>
+#include<iostream>
+using namespace std;
 using namespace INTERV;
 INTERV::TableauBorne::TableauBorne(Type bornInf, Type bornSup,unsigned int Taille):Tableau(Taille)
 {
@@ -19,4 +21,10 @@ void INTERV::TableauBorne::operator()(unsigned int ind, Type Val)
 	{
 		this->Tableau::operator[](ind) = Val;
 	}
+}
+
+void INTERV::TableauBorne::Print() const
+{
+	cout << endl << "Inf:" << this->Inf << " Sup:" << this->Sup<<endl;
+	this->Tableau::Print();
 }
