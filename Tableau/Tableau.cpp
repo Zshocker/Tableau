@@ -7,7 +7,7 @@ INTERV::Tableau::Tableau(unsigned int Taille)
 {
 	this->Taille = Taille;
 	if (Taille > 0) {
-		this->Tab = new Type[Taille];
+		this->Tab = new Type[Taille]();
 	}
 	else this->Tab = NULL;
 }
@@ -40,17 +40,18 @@ INTERV::Tableau::Tableau(const Tableau&T)
 Tableau& INTERV::Tableau::operator=(const Tableau&T)
 {
 	if (this != &T) {
-		if (this->Tab) {
-			delete[] this->Tab;
-			this->Tab = NULL;
-		}
-		this->Taille = T.Taille;
-		if (Taille > 0) { 
-			this->Tab = new Type[Taille];
-			for (unsigned int i = 0; i < Taille; i++)
+		if (this->Taille!=T.Taille) {
+			this->Taille = T.Taille;
+			if (this->Tab) 
 			{
-				Tab[i] = T.Tab[i];
+				delete[] this->Tab;
+				this->Tab = NULL;
 			}
+			if(Taille)this->Tab = new Type[Taille];
+		}
+		for (unsigned int i = 0; i < Taille; i++)
+		{
+			Tab[i] = T.Tab[i];
 		}
 	}
 	return *this;
