@@ -10,14 +10,14 @@ INTERV::TableauBorne::TableauBorne(Type bornInf, Type bornSup,unsigned int Taill
 	this->Sup = bornSup;
 }
 
-Type INTERV::TableauBorne::operator[](unsigned int ind)const
+const Type& INTERV::TableauBorne::operator[](unsigned int ind)const
 {
-	return this->Tab[ind];
+	return this->Tableau::operator[](ind);
 }
 
 void INTERV::TableauBorne::operator()(unsigned int ind, Type Val)
 {
-	if (Taille > ind && Val >= Inf && Val <= Sup) 
+	if (Val >= Inf && Val <= Sup) 
 	{
 		this->Tableau::operator[](ind) = Val;
 	}

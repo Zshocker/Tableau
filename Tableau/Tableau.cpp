@@ -19,7 +19,7 @@ INTERV::Tableau::~Tableau()
 		this->Tab = NULL;
 	}
 }
-Type& INTERV::Tableau::operator[](unsigned int ind)
+Type& INTERV::Tableau::operator[](unsigned int ind)const
 {
 	assert(this->Taille > ind);
 	return this->Tab[ind];
